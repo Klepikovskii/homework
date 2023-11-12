@@ -105,7 +105,7 @@ def find_client(conn, first_name=None, last_name=None, email=None, phone=None):
         ''', (first_name, last_name, email, phone))
         return cur.fetchall()
 
-with psycopg2.connect(database="netology_db", user="postgres", password="ADIdas1322") as conn:
+with psycopg2.connect(database="netology_db", user="postgres", password="...") as conn:
     create_db(conn)
 
     # Пример использования функций
