@@ -142,72 +142,90 @@
 
 # Домашняя работа задание №1 (открытие файла)
 
-with open('recipes.txt', 'rt', encoding = 'utf-8') as file:
-    cook_book = {}
-    for line in file:
-        dish_name = line.strip()
-        quantity_ing = int(file.readline())
-        ingredients_list = []
-        for _ in range(quantity_ing):
-            ing = file.readline()
-            ingredient_name, quantity, measure = ing.strip().split(' | ')
-            ingredient = {
-                'ingredient_name': ingredient_name,
-                'quantity': quantity,
-                'measure': measure
-            }
-            ingredients_list.append(ingredient)
-        file.readline()
-        cook_book[dish_name] = ingredients_list
-        # print(cook_book) 
+# with open('recipes.txt', 'rt', encoding = 'utf-8') as file:
+#     cook_book = {}
+#     for line in file:
+#         dish_name = line.strip()
+#         quantity_ing = int(file.readline())
+#         ingredients_list = []
+#         for _ in range(quantity_ing):
+#             ing = file.readline()
+#             ingredient_name, quantity, measure = ing.strip().split(' | ')
+#             ingredient = {
+#                 'ingredient_name': ingredient_name,
+#                 'quantity': quantity,
+#                 'measure': measure
+#             }
+#             ingredients_list.append(ingredient)
+#         file.readline()
+#         cook_book[dish_name] = ingredients_list
+#         # print(cook_book) 
 
-# Домашняя работа задание №2 (список продуктов)
+# # Домашняя работа задание №2 (список продуктов)
 
     
 
-    def get_shop_list_by_dishes(dishes, person_count):
-        shoppinr_list = {}
-        for dish, ingr_list in cook_book.items():
-            if dish in dishes:
-                for ingr in ingr_list:
-                    if ingr['ingredient_name'] in shoppinr_list:
-                        shoppinr_list[ingr['ingredient_name']]['quantity'] += (int(ingr['quantity']) * person_count)
-                    else:                        
-                        shoppinr_list[ingr['ingredient_name']] = {'measure': ingr['measure'], 'quantity': (int(ingr['quantity']) * person_count)}
+#     def get_shop_list_by_dishes(dishes, person_count):
+#         shoppinr_list = {}
+#         for dish, ingr_list in cook_book.items():
+#             if dish in dishes:
+#                 for ingr in ingr_list:
+#                     if ingr['ingredient_name'] in shoppinr_list:
+#                         shoppinr_list[ingr['ingredient_name']]['quantity'] += (int(ingr['quantity']) * person_count)
+#                     else:                        
+#                         shoppinr_list[ingr['ingredient_name']] = {'measure': ingr['measure'], 'quantity': (int(ingr['quantity']) * person_count)}
                        
                        
 
-        # print(shoppinr_list)
-    get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)                
+#         # print(shoppinr_list)
+#     get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)                
                                   
-# Домашняя работа задание №3 (преобразование файлов)
+# # Домашняя работа задание №3 (преобразование файлов)
 
-import os
+# import os
 
-# Путь к папке с файлами
-current = os.getcwd()
-folder_path = 'folder_task3'
+# # Путь к папке с файлами
+# current = os.getcwd()
+# folder_path = 'folder_task3'
 
-# Список файлов в папке
-file_list = ['1.txt', '2.txt', '3.txt']
+# # Список файлов в папке
+# file_list = ['1.txt', '2.txt', '3.txt']
 
-# Функция для получения количества строк в файле
-def get_line_count(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return sum(1 for line in file)
+# # Функция для получения количества строк в файле
+# def get_line_count(file_path):
+#     with open(file_path, 'r', encoding='utf-8') as file:
+#         return sum(1 for line in file)
 
-# Создаем список кортежей с информацией о файле (имя, количество строк)
-file_info = [(file, get_line_count(os.path.join(current, folder_path, file))) for file in file_list]
+# # Создаем список кортежей с информацией о файле (имя, количество строк)
+# file_info = [(file, get_line_count(os.path.join(current, folder_path, file))) for file in file_list]
 
-# Сортируем список по количеству строк
-file_info.sort(key=lambda x: x[1])
-# Создаем результирующий файл и записываем в него содержимое исходных файлов
+# # Сортируем список по количеству строк
+# file_info.sort(key=lambda x: x[1])
+# # Создаем результирующий файл и записываем в него содержимое исходных файлов
 
-with open(os.path.join(current, folder_path, 'result.txt'), 'w', encoding='utf-8') as result_file:
-    for file, line_count in file_info:
-        result_file.write(f'{file}\n')
-        result_file.write(f'{line_count}\n')       
-        with open(os.path.join(current, folder_path, file), 'r', encoding='utf-8') as input_file:
-            result_file.write(input_file.read())
-        result_file.write('\n')
+# with open(os.path.join(current, folder_path, 'result.txt'), 'w', encoding='utf-8') as result_file:
+#     for file, line_count in file_info:
+#         result_file.write(f'{file}\n')
+#         result_file.write(f'{line_count}\n')       
+#         with open(os.path.join(current, folder_path, file), 'r', encoding='utf-8') as input_file:
+#             result_file.write(input_file.read())
+#         result_file.write('\n')
  
+# for a in range(1, 151):
+#     for b in range(a + 1, 151):
+#         for c in range(b + 1, 151):
+#             for d in range(c + 1, 151):
+#                 e = int(((a ** 5) + (b ** 5) + (c ** 5) + (d ** 5)) ** 0.2)
+#                 if e ** 5 == int((a ** 5) + (b ** 5) + (c ** 5) + (d ** 5)):
+#                     print(a + b + c + d + e)
+#                     print('a =', a, 'b =', b, 'c =', c, 'd =', d, 'e =', e)
+
+from application.people import get_employees
+from application.salary import calculate_salary
+from datetime import datetime, date, time
+
+if __name__ == '__main__':
+   get_employees(6)
+   calculate_salary(100)
+   print(datetime.now()) 
+
